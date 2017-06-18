@@ -1,0 +1,31 @@
+<h1>Listing Pets</h1>
+
+<!--<div class="container">-->
+  <!--<div class="table-responsive">-->
+    <table class="table table-striped table-bordered table-hover" >
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </tr>
+
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.description %></td>
+        <td><%=image_tag pet.image%></td>
+        <td><%= link_to 'Show', pet %></td>"
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+  <!--</div>-->
+<!--</div>-->
+
+<br/>
+
+<%= link_to 'New Pet', new_pet_path %>
